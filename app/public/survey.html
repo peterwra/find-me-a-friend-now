@@ -164,14 +164,13 @@
 
     </div>
 
-    <!-- Modal -->
-    <div id="results-modal" class="modal fade" role="dialog">
+    <!-- Modal for displaying the matched friend -->
+    <div id="new-friend-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
                     <h2 class="modal-title"><strong>Say Hello to Your New Best Friend!</strong></h2>
                 </div>
                 <div class="modal-body">
@@ -212,6 +211,14 @@
                 };
                 console.log(newFriendData);
 
+                // Clear the data input fields
+                $("#name").val("");
+                $("#picture").val("");
+                for (var i = 1; i <= 10; i++) {
+                    var qObject = $("#q" + i.toString());
+                    qObject[0].selectedIndex = 0;
+                }
+
                 // Post to api and display match
                 $.post("/api/friends", newFriendData, function (data) {
 
@@ -220,7 +227,7 @@
                     $("#friendimage").attr("src", data.photo);
 
                     // Display the modal
-                    $("#results-modal").modal("toggle");
+                    $("#new-friend-modal").modal("toggle");
 
                 });
             } else {
@@ -240,7 +247,6 @@
             // Check if any questions doesn't have an option selected
             for (var i = 1; i <= 10; i++) {
                 if ($("#q" + i.toString()).val() === null) {
-                    console.log("Value of i is null: " + i);
                     validData = false;
                     break;
                 }

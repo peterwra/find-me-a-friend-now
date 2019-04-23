@@ -10,9 +10,6 @@ module.exports = function (app) {
         // Get the data from the body
         var newUser = request.body;
 
-        // Push the new user to the list
-        friendList.push(newUser);
-
         // Sum up the scores and store in a variable to compare to the others
         var totalNewUserScore = 0;
         for (var i = 0; i < newUser.scores.length; i++) {
@@ -36,14 +33,17 @@ module.exports = function (app) {
             }
         }
 
+        // Push the new user to the list after we found a match
+        friendList.push(newUser);
+
         // Send the best match back to the user
         response.json(friendList[userFriendMatchIndex]);
 
-    })
+    });
 
     // User has issued a 'GET' API request for the friend list
-    app.get("/api/friends", function(request, response) {
+    app.get("/api/friends", function (request, response) {
         response.json(friendList);
-    })
+    });
 
 }

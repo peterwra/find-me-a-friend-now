@@ -1,7 +1,7 @@
 var friendArray = [
     {
         name: "George of the Jungle",
-        photo: "https://imgix.bustle.com/uploads/image/2017/7/16/b0ff4ece-9660-43d2-bf06-df25c432039f-georgeofthejungley1997m-1536x614-dhe.jpg?w=712&h=400&fit=crop&crop=faces&auto=format&q=70",
+        photo: "https://imgix.bustle.com/uploads/image/2017/7/16/b0ff4ece-9660-43d2-bf06-df25c432039f-georgeofthejungley1997m-1536x614-dhe.jpg?w=500&h=281&fit=crop&crop=faces&auto=format&q=70",
         scores: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     },
     {
