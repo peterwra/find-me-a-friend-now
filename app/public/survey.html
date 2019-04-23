@@ -196,8 +196,8 @@
                 // New object to hold the data from the user
                 var newFriendData = {
                     name: $("#name").val(),
-                    picture: $("#picture").val(),
-                    answers: [
+                    photo: $("#picture").val(),
+                    scores: [
                         $("#q1").val(),
                         $("#q2").val(),
                         $("#q3").val(),
@@ -217,7 +217,7 @@
 
                     // Get name and picture image from the response
                     $("#friendname").text(data.name);
-                    $("#friendimage").attr("src", data.picture);
+                    $("#friendimage").attr("src", data.photo);
 
                     // Display the modal
                     $("#results-modal").modal("toggle");
@@ -239,7 +239,7 @@
 
             // Check if any questions doesn't have an option selected
             for (var i = 1; i <= 10; i++) {
-                if ($("#q"+i.toString()).val() === null) {
+                if ($("#q" + i.toString()).val() === null) {
                     console.log("Value of i is null: " + i);
                     validData = false;
                     break;
